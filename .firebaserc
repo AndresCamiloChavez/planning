@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "plannig-571b2": {
+      "hosting": {
+        "planningCZ": [
+          "plannig-571b2"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "plannig-571b2"
+  }
+}
