@@ -3,3 +3,10 @@
     margin: auto;
     height: 400px;
 }
+.container_started{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}

@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./started.component.css']
 })
 export class StartedComponent implements OnInit {
-
+  
+  display: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  showDialog() {
+      this.display = true;
   }
 
 }

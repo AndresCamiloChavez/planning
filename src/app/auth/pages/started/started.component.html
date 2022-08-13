@@ -1,8 +1,15 @@
-<div class="card">
-    <div class="card-container purple-container">
-        
-        <div class="form-started">
-
-        </div>
+<div class="container_started">
+    <div>
+        <h2>Únete o crea una sala</h2>
+        <button pButton type="button" label="Crear una nueva sala" class="p-button-outlined"></button>
+        <button pButton type="button" (click)="showDialog()" label="Unirte a una sala" class="p-button-outlined"></button>
     </div>
+    <p-dialog header="Sala" [(visible)]="display">
+        <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText placeholder="Código de sala">         
+        </span>
+        <button pButton type="button" label="Ingresar" class="p-button-outlined"></button>
+
+    </p-dialog>
 </div>
