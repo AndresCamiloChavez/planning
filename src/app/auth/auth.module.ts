@@ -5,6 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { PrimengModule } from '../primeng/primeng.module';
 import { StartedComponent } from './pages/started/started.component';
+import { AngularFireModule } from '@angular/fire/compat';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { StartedComponent } from './pages/started/started.component';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    PrimengModule
+    PrimengModule,
+    AngularFireModule
   ]
 })
 export class AuthModule { }
