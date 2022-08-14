@@ -1,7 +1,7 @@
 <div class="container_started">
     <div>
         <h2>Únete o crea una sala</h2>
-        <button pButton type="button" label="Crear una nueva sala" class="p-button-outlined"></button>
+        <button pButton type="button" (click)="craeteRoom()" label="Crear una nueva sala" class="p-button-outlined"></button>
         <button pButton type="button" (click)="showDialog()" label="Unirte a una sala" class="p-button-outlined"></button>
     </div>
     <p-dialog header="Sala" [(visible)]="display">
