@@ -3,4 +3,5 @@ export interface User{
     email: string;
     photo: string;
     uid: string
+    vote: number;
 }

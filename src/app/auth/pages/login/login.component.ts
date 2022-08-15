@@ -32,6 +32,13 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    let userLogin: User = {
+      username: '',
+      email: '',
+      photo: '',
+      uid: '',
+      vote: 0
+    };
     this.auth
       .signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((value) => {
@@ -43,18 +50,19 @@ export class LoginComponent implements OnInit {
           .valueChanges()
           .subscribe((users) => {
             if (!(users.length > 0)) {
-              const userLogin: User = {
+             userLogin = {
                 uid: value.user?.uid ?? '1',
                 email: value.user?.email ?? 'noEmail@email.com',
                 username: value.user?.displayName ?? 'anonymous',
+                vote: 0,
                 photo:
                   value.user?.photoURL ??
                   'https://icon-library.com/images/icon-person/icon-person-4.jpg',
               };
               userCollection.add(userLogin);
             }
+            this.storageService.store('user', btoa(JSON.stringify(userLogin)));
           });
-        this.storageService.store('user', btoa(JSON.stringify(value.user)));
         this.router.navigate(['/auth/started']);
       });
   }

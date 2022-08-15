@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SocketService } from 'src/app/services/socket.service';
+import { Room } from '../../../models/room';
+import { StorageService } from '../../../core/storage/storage.service';
 
 @Component({
   selector: 'app-started',
@@ -9,16 +12,24 @@ import { Router } from '@angular/router';
 export class StartedComponent implements OnInit {
   
   display: boolean = false;
-  constructor(private router: Router) { }
+  constructor(private router: Router, private socketService: SocketService,private storageService:  StorageService) { }
 
   ngOnInit(): void {
+    this.socketService.getSocket().connect();
   }
 
   showDialog() {
       this.display = true;
   }
   craeteRoom(){
-    this.router.navigate(['/home/room']);
+    const room: Room = {
+      code: 'ABC123',
+      users: [
+        JSON.parse(atob(this.storageService.retrieve('user')))
+      ]
+    }
+    this.socketService.socket.emit('createRoom', room );
+    // this.router.navigate(['/home/room']);
   }
 
 }

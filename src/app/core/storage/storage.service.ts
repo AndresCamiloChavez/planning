@@ -12,6 +12,8 @@ export class StorageService {
   public retrieve(key:string){
     const item = this.storage.getItem(key);
     if(item && item !== 'undefined'){
+      console.log(item);
+      
       return JSON.parse(item);
     }
     return;
